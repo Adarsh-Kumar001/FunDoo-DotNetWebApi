@@ -86,6 +86,7 @@ All protected endpoints require JWT authentication.
 
 appsettings.json 
 
+```
 {
   "Logging": {
     "LogLevel": {
@@ -110,6 +111,8 @@ appsettings.json
       "AppPassword": "16 letter app pass key"
     }
   }
+
+```
 
 
 
