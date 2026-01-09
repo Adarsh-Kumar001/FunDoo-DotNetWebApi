@@ -5013,6 +5013,8 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "FunDooBusiness >= 1.0.0",
+      "FunDooModels >= 1.0.0",
+      "FunDooRepository >= 1.0.0",
       "FunDooWebApi >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "Moq >= 4.20.72",
@@ -5056,6 +5058,12 @@
           "projectReferences": {
             "C:\\Users\\adars\\source\\repos\\FunDoo\\FunDooBusiness\\FunDooBusiness.csproj": {
               "projectPath": "C:\\Users\\adars\\source\\repos\\FunDoo\\FunDooBusiness\\FunDooBusiness.csproj"
+            },
+            "C:\\Users\\adars\\source\\repos\\FunDoo\\FunDooModels\\FunDooModels.csproj": {
+              "projectPath": "C:\\Users\\adars\\source\\repos\\FunDoo\\FunDooModels\\FunDooModels.csproj"
+            },
+            "C:\\Users\\adars\\source\\repos\\FunDoo\\FunDooRepository\\FunDooRepository.csproj": {
+              "projectPath": "C:\\Users\\adars\\source\\repos\\FunDoo\\FunDooRepository\\FunDooRepository.csproj"
             },
             "C:\\Users\\adars\\source\\repos\\FunDoo\\FunDooWebApi\\FunDooWebApi.csproj": {
               "projectPath": "C:\\Users\\adars\\source\\repos\\FunDoo\\FunDooWebApi\\FunDooWebApi.csproj"

@@ -9,6 +9,8 @@
       "FunDooTest/1.0.0": {
         "dependencies": {
           "FunDooBusiness": "1.0.0",
+          "FunDooModels": "1.0.0",
+          "FunDooRepository": "1.0.0",
           "FunDooWebApi": "1.0.0",
           "Microsoft.NET.Test.Sdk": "17.8.0",
           "Moq": "4.20.72",

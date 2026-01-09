@@ -20,6 +20,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FunDooBusiness\FunDooBusiness.csproj" />
+    <ProjectReference Include="..\FunDooModels\FunDooModels.csproj" />
+    <ProjectReference Include="..\FunDooRepository\FunDooRepository.csproj" />
     <ProjectReference Include="..\FunDooWebApi\FunDooWebApi.csproj" />
   </ItemGroup>
 
