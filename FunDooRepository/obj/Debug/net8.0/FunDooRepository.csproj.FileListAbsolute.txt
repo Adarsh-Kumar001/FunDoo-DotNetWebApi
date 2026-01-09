@@ -1,0 +1,17 @@
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\bin\Debug\net8.0\FunDooRepository.deps.json
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\bin\Debug\net8.0\FunDooRepository.runtimeconfig.json
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\bin\Debug\net8.0\FunDooRepository.dll
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\bin\Debug\net8.0\FunDooRepository.pdb
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\bin\Debug\net8.0\FunDooModels.dll
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\bin\Debug\net8.0\FunDooModels.pdb
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.csproj.AssemblyReference.cache
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.AssemblyInfoInputs.cache
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.AssemblyInfo.cs
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.csproj.CoreCompileInputs.cache
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRe.DA4A32FC.Up2Date
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.dll
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\refint\FunDooRepository.dll
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.pdb
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.genruntimeconfig.cache
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\ref\FunDooRepository.dll

@@ -1,0 +1,17 @@
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\bin\Debug\net8.0\FunDooBusiness.deps.json
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\bin\Debug\net8.0\FunDooBusiness.dll
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\bin\Debug\net8.0\FunDooBusiness.pdb
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\bin\Debug\net8.0\FunDooModels.dll
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\bin\Debug\net8.0\FunDooRepository.dll
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\bin\Debug\net8.0\FunDooModels.pdb
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\bin\Debug\net8.0\FunDooRepository.pdb
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusiness.csproj.AssemblyReference.cache
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusiness.AssemblyInfoInputs.cache
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusiness.AssemblyInfo.cs
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusiness.csproj.CoreCompileInputs.cache
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBu.F016FF8B.Up2Date
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusiness.dll
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\refint\FunDooBusiness.dll
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusiness.pdb
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\ref\FunDooBusiness.dll

@@ -1,0 +1,11 @@
+C:\Users\adars\source\repos\FunDoo\FunDooModels\bin\Debug\net8.0\FunDooModels.deps.json
+C:\Users\adars\source\repos\FunDoo\FunDooModels\bin\Debug\net8.0\FunDooModels.dll
+C:\Users\adars\source\repos\FunDoo\FunDooModels\bin\Debug\net8.0\FunDooModels.pdb
+C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\FunDooModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\FunDooModels.AssemblyInfoInputs.cache
+C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\FunDooModels.AssemblyInfo.cs
+C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\FunDooModels.csproj.CoreCompileInputs.cache
+C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\FunDooModels.dll
+C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\refint\FunDooModels.dll
+C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\FunDooModels.pdb
+C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\ref\FunDooModels.dll
