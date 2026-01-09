@@ -1,4 +1,5 @@
-﻿using FunDooRepository.Entities;
+﻿using FunDooModels.DTOs.Collaborators;
+using FunDooRepository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace FunDooBusiness.Interfaces
 {
     public interface ICollaboratorService
     {
-        Collaborator Add(Collaborator collaborator);
-        IEnumerable<Collaborator> GetAll(long noteId);
+        Task<CollaboratorResponseDTO> AddCollaboratorAsync(int ownerUserId, AddCollaboratorDTO dto);
+        Task<bool> RemoveCollaboratorAsync(int collaboratorId, int ownerUserId);
+        Task<List<CollaboratorResponseDTO>> GetCollaboratorsByNoteAsync(int noteId, int ownerUserId);
     }
 }

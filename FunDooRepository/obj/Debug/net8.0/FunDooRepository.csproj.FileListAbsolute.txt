@@ -15,3 +15,4 @@ C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\refint\FunD
 C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.pdb
 C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.genruntimeconfig.cache
 C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\ref\FunDooRepository.dll
+C:\Users\adars\source\repos\FunDoo\FunDooRepository\obj\Debug\net8.0\FunDooRepository.sourcelink.json

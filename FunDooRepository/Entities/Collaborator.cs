@@ -16,12 +16,17 @@ namespace FunDooRepository.Entities
 
         [Required]
         [EmailAddress]
+        [MaxLength(150)]
         public string CollaboratorEmail { get; set; } = string.Empty;
 
-        [ForeignKey(nameof(Note))]
+        [Required]
         public int NoteId { get; set; }
+
+        [Required]
+        public int OwnerUserId { get; set; }   // who owns the note
 
         // Navigation
         public Note Note { get; set; } = null!;
+        public User Owner { get; set; } = null!;
     }
 }

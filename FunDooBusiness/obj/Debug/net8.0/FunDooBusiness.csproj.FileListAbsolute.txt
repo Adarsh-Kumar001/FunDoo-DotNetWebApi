@@ -15,3 +15,4 @@ C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusines
 C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\refint\FunDooBusiness.dll
 C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusiness.pdb
 C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\ref\FunDooBusiness.dll
+C:\Users\adars\source\repos\FunDoo\FunDooBusiness\obj\Debug\net8.0\FunDooBusiness.sourcelink.json

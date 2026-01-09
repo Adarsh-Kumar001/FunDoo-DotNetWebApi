@@ -21,6 +21,7 @@ namespace FunDooRepository.DbContextFolder
 
         public DbSet<EmailOtp> EmailOtps { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -37,6 +38,12 @@ namespace FunDooRepository.DbContextFolder
                 .WithMany(l => l.LabelNotes)
                 .HasForeignKey(ln => ln.LabelId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Collaborator>()
+           .HasOne(c => c.Owner)
+           .WithMany()
+           .HasForeignKey(c => c.OwnerUserId)
+           .OnDelete(DeleteBehavior.NoAction);
         }
 
     }

@@ -172,3 +172,4 @@ C:\Users\adars\source\repos\FunDoo\FunDooTest\obj\Debug\net8.0\refint\FunDooTest
 C:\Users\adars\source\repos\FunDoo\FunDooTest\obj\Debug\net8.0\FunDooTest.pdb
 C:\Users\adars\source\repos\FunDoo\FunDooTest\obj\Debug\net8.0\FunDooTest.genruntimeconfig.cache
 C:\Users\adars\source\repos\FunDoo\FunDooTest\obj\Debug\net8.0\ref\FunDooTest.dll
+C:\Users\adars\source\repos\FunDoo\FunDooTest\obj\Debug\net8.0\FunDooTest.sourcelink.json

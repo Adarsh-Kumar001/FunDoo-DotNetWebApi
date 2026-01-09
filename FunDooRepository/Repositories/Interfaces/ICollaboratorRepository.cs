@@ -9,7 +9,8 @@ namespace FunDooRepository.Repositories.Interfaces
 {
     public interface ICollaboratorRepository
     {
-        Collaborator Add(Collaborator collaborator);
-        IEnumerable<Collaborator> GetByNoteId(long noteId);
+        Task<Collaborator> AddAsync(Collaborator collaborator);
+        Task<bool> RemoveAsync(int collaboratorId, int ownerUserId);
+        Task<List<Collaborator>> GetByNoteIdAsync(int noteId, int ownerUserId);
     }
 }

@@ -32,14 +32,20 @@ namespace FunDooRepository.Migrations
 
                     b.Property<string>("CollaboratorEmail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<int>("NoteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OwnerUserId")
                         .HasColumnType("int");
 
                     b.HasKey("CollaboratorId");
 
                     b.HasIndex("NoteId");
+
+                    b.HasIndex("OwnerUserId");
 
                     b.ToTable("Collaborators");
                 });
@@ -251,7 +257,15 @@ namespace FunDooRepository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FunDooRepository.Entities.User", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerUserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("Note");
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("FunDooRepository.Entities.Label", b =>

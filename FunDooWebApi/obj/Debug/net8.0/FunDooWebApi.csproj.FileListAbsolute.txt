@@ -158,3 +158,4 @@ C:\Users\adars\source\repos\FunDoo\FunDooWebApi\obj\Debug\net8.0\refint\FunDooWe
 C:\Users\adars\source\repos\FunDoo\FunDooWebApi\obj\Debug\net8.0\FunDooWebApi.pdb
 C:\Users\adars\source\repos\FunDoo\FunDooWebApi\obj\Debug\net8.0\FunDooWebApi.genruntimeconfig.cache
 C:\Users\adars\source\repos\FunDoo\FunDooWebApi\obj\Debug\net8.0\ref\FunDooWebApi.dll
+C:\Users\adars\source\repos\FunDoo\FunDooWebApi\obj\Debug\net8.0\FunDooWebApi.sourcelink.json

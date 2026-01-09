@@ -163,23 +163,23 @@
     "/api/collaborators": {
       "post": {
         "tags": [
-          "Collaborators"
+          "Collaborator"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Collaborator"
+                "$ref": "#/components/schemas/AddCollaboratorDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Collaborator"
+                "$ref": "#/components/schemas/AddCollaboratorDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Collaborator"
+                "$ref": "#/components/schemas/AddCollaboratorDTO"
               }
             }
           }
@@ -191,10 +191,33 @@
         }
       }
     },
-    "/api/collaborators/{noteId}": {
+    "/api/collaborators/{collaboratorId}": {
+      "delete": {
+        "tags": [
+          "Collaborator"
+        ],
+        "parameters": [
+          {
+            "name": "collaboratorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/collaborators/note/{noteId}": {
       "get": {
         "tags": [
-          "Collaborators"
+          "Collaborator"
         ],
         "parameters": [
           {
@@ -203,7 +226,7 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "format": "int64"
+              "format": "int32"
             }
           }
         ],
@@ -217,23 +240,23 @@
     "/api/labels": {
       "post": {
         "tags": [
-          "Labels"
+          "Label"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Label"
+                "$ref": "#/components/schemas/CreateLabelDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Label"
+                "$ref": "#/components/schemas/CreateLabelDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Label"
+                "$ref": "#/components/schemas/CreateLabelDTO"
               }
             }
           }
@@ -243,21 +266,156 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/labels/{userId}": {
+      },
       "get": {
         "tags": [
-          "Labels"
+          "Label"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/labels/{labelId}": {
+      "put": {
+        "tags": [
+          "Label"
         ],
         "parameters": [
           {
-            "name": "userId",
+            "name": "labelId",
             "in": "path",
             "required": true,
             "schema": {
               "type": "integer",
-              "format": "int64"
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLabelDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLabelDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLabelDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Label"
+        ],
+        "parameters": [
+          {
+            "name": "labelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/labels/{labelId}/notes/{noteId}": {
+      "post": {
+        "tags": [
+          "Label"
+        ],
+        "parameters": [
+          {
+            "name": "labelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Label"
+        ],
+        "parameters": [
+          {
+            "name": "labelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/note-history/{noteId}": {
+      "get": {
+        "tags": [
+          "NoteHistory"
+        ],
+        "parameters": [
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -442,16 +600,13 @@
   },
   "components": {
     "schemas": {
-      "Collaborator": {
+      "AddCollaboratorDTO": {
         "required": [
-          "collaboratorEmail"
+          "collaboratorEmail",
+          "noteId"
         ],
         "type": "object",
         "properties": {
-          "collaboratorId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "collaboratorEmail": {
             "minLength": 1,
             "type": "string",
@@ -460,9 +615,16 @@
           "noteId": {
             "type": "integer",
             "format": "int32"
-          },
-          "note": {
-            "$ref": "#/components/schemas/Note"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateLabelDTO": {
+        "type": "object",
+        "properties": {
+          "labelName": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -495,73 +657,6 @@
         },
         "additionalProperties": false
       },
-      "Label": {
-        "required": [
-          "labelName"
-        ],
-        "type": "object",
-        "properties": {
-          "labelId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "labelName": {
-            "maxLength": 100,
-            "minLength": 1,
-            "type": "string"
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
-          },
-          "notes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Note"
-            },
-            "nullable": true
-          },
-          "labelNotes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LabelNote"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LabelNote": {
-        "required": [
-          "labelId",
-          "noteId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "noteId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "labelId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "note": {
-            "$ref": "#/components/schemas/Note"
-          },
-          "label": {
-            "$ref": "#/components/schemas/Label"
-          }
-        },
-        "additionalProperties": false
-      },
       "LoginDTO": {
         "type": "object",
         "properties": {
@@ -572,109 +667,6 @@
           "password": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Note": {
-        "required": [
-          "title",
-          "userId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "maxLength": 200,
-            "minLength": 1,
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "isPinned": {
-            "type": "boolean"
-          },
-          "isArchived": {
-            "type": "boolean"
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "color": {
-            "maxLength": 20,
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
-          },
-          "labelNotes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LabelNote"
-            },
-            "nullable": true
-          },
-          "collaborators": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Collaborator"
-            },
-            "nullable": true
-          },
-          "noteHistories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NoteHistory"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "NoteHistory": {
-        "type": "object",
-        "properties": {
-          "noteHistoryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "noteId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "oldTitle": {
-            "type": "string",
-            "nullable": true
-          },
-          "oldContent": {
-            "type": "string",
-            "nullable": true
-          },
-          "modifiedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "note": {
-            "$ref": "#/components/schemas/Note"
           }
         },
         "additionalProperties": false
@@ -715,6 +707,16 @@
         },
         "additionalProperties": false
       },
+      "UpdateLabelDTO": {
+        "type": "object",
+        "properties": {
+          "labelName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateNoteDTO": {
         "type": "object",
         "properties": {
@@ -729,60 +731,6 @@
           "color": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "User": {
-        "required": [
-          "email",
-          "fullName",
-          "passwordHash"
-        ],
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fullName": {
-            "maxLength": 100,
-            "minLength": 1,
-            "type": "string"
-          },
-          "email": {
-            "minLength": 1,
-            "type": "string",
-            "format": "email"
-          },
-          "passwordHash": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "isEmailVerified": {
-            "type": "boolean"
-          },
-          "emailOtp": {
-            "type": "string",
-            "nullable": true
-          },
-          "emailOtpExpiry": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "resetToken": {
-            "type": "string",
-            "nullable": true
-          },
-          "resetTokenExpiry": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
           }
         },
         "additionalProperties": false

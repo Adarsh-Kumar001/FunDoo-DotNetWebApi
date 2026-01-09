@@ -80,7 +80,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FunDooWebApi.Controllers.CollaboratorsController",
+    "ContainingType": "FunDooWebApi.Controllers.CollaboratorController",
     "Method": "Add",
     "RelativePath": "api/collaborators",
     "HttpMethod": "POST",
@@ -88,31 +88,47 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "collaborator",
-        "Type": "FunDooRepository.Entities.Collaborator",
+        "Name": "dto",
+        "Type": "FunDooModels.DTOs.Collaborators.AddCollaboratorDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FunDooWebApi.Controllers.CollaboratorsController",
-    "Method": "GetAll",
-    "RelativePath": "api/collaborators/{noteId}",
+    "ContainingType": "FunDooWebApi.Controllers.CollaboratorController",
+    "Method": "Remove",
+    "RelativePath": "api/collaborators/{collaboratorId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "collaboratorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FunDooWebApi.Controllers.CollaboratorController",
+    "Method": "GetByNote",
+    "RelativePath": "api/collaborators/note/{noteId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "noteId",
-        "Type": "System.Int64",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FunDooWebApi.Controllers.LabelsController",
+    "ContainingType": "LabelController",
     "Method": "Create",
     "RelativePath": "api/labels",
     "HttpMethod": "POST",
@@ -120,24 +136,113 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "label",
-        "Type": "FunDooRepository.Entities.Label",
+        "Name": "dto",
+        "Type": "FunDooModels.DTOs.Labels.CreateLabelDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FunDooWebApi.Controllers.LabelsController",
+    "ContainingType": "LabelController",
     "Method": "GetAll",
-    "RelativePath": "api/labels/{userId}",
+    "RelativePath": "api/labels",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LabelController",
+    "Method": "Update",
+    "RelativePath": "api/labels/{labelId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "labelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "FunDooModels.DTOs.Labels.UpdateLabelDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LabelController",
+    "Method": "Delete",
+    "RelativePath": "api/labels/{labelId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "labelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LabelController",
+    "Method": "AddLabelToNote",
+    "RelativePath": "api/labels/{labelId}/notes/{noteId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "labelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "noteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LabelController",
+    "Method": "RemoveLabelFromNote",
+    "RelativePath": "api/labels/{labelId}/notes/{noteId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "labelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "noteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FunDooWebApi.Controllers.NoteHistoryController",
+    "Method": "GetHistory",
+    "RelativePath": "api/note-history/{noteId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
-        "Type": "System.Int64",
+        "Name": "noteId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

@@ -74,7 +74,13 @@ builder.Services.AddScoped<ILabelRepository, LabelRepository>();
 builder.Services.AddScoped<ICollaboratorService, CollaboratorService>();
 builder.Services.AddScoped<ICollaboratorRepository, CollaboratorRepository>();
 
+builder.Services.AddScoped<INoteHistoryRepository, NoteHistoryRepository>();
+builder.Services.AddScoped<INoteHistoryService, NoteHistoryService>();
+
+
 builder.Services.AddScoped<IEmailOtpRepository, EmailOtpRepository>();
+
+
 
 
 

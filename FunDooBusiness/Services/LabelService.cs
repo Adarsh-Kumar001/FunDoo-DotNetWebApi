@@ -1,12 +1,12 @@
 ﻿using FunDooBusiness.Interfaces;
+using FunDooModels.DTOs.Labels;
+using FunDooRepository.Entities;
 using FunDooRepository.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using FunDooRepository.Entities;
 
 
 namespace FunDooBusiness.Services
@@ -20,14 +20,44 @@ namespace FunDooBusiness.Services
             _labelRepository = labelRepository;
         }
 
-        public Label Create(Label label)
+        public async Task<Label> CreateLabel(int userId, CreateLabelDTO dto)
         {
-            return _labelRepository.Add(label);
+            var label = new Label
+            {
+                LabelName = dto.LabelName,
+                UserId = userId
+            };
+
+            return await _labelRepository.CreateAsync(label);
         }
 
-        public IEnumerable<Label> GetAll(long userId)
+        public async Task<IEnumerable<Label>> GetAllLabels(int userId)
         {
-            return _labelRepository.GetByUserId(userId);
+            return await _labelRepository.GetAllAsync(userId);
+        }
+
+        public async Task<bool> UpdateLabel(int labelId, int userId, UpdateLabelDTO dto)
+        {
+            var label = await _labelRepository.GetByIdAsync(labelId, userId);
+            if (label == null) return false;
+
+            label.LabelName = dto.LabelName;
+            return await _labelRepository.UpdateAsync(label);
+        }
+
+        public async Task<bool> DeleteLabel(int labelId, int userId)
+        {
+            return await _labelRepository.DeleteAsync(labelId, userId);
+        }
+
+        public async Task<bool> AddLabelToNote(int noteId, int labelId)
+        {
+            return await _labelRepository.AddLabelToNote(noteId, labelId);
+        }
+
+        public async Task<bool> RemoveLabelFromNote(int noteId, int labelId)
+        {
+            return await _labelRepository.RemoveLabelFromNote(noteId, labelId);
         }
     }
 }

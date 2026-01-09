@@ -1,6 +1,7 @@
 ﻿using FunDooBusiness.Interfaces;
 using FunDooModels.DTOs.Notes;
 using FunDooRepository.Entities;
+using FunDooRepository.Repositories.Implementation;
 using FunDooRepository.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,16 @@ namespace FunDooBusiness.Services
     public class NoteService  : INoteService
     {
         private readonly INoteRepository _noteRepository;
+        private readonly INoteHistoryRepository _noteHistoryRepository;
 
-        public NoteService(INoteRepository noteRepository)
+        public NoteService(
+            INoteRepository noteRepository,
+            INoteHistoryRepository noteHistoryRepository)
         {
             _noteRepository = noteRepository;
+            _noteHistoryRepository = noteHistoryRepository;
         }
+
 
         public IEnumerable<Note> GetNotes(int userId)
         {
@@ -47,6 +53,18 @@ namespace FunDooBusiness.Services
             var note = _noteRepository.GetById(noteId, userId);
             if (note == null) return false;
 
+            // SAVE OLD DATA FIRST (IMPORTANT)
+            var history = new NoteHistory
+            {
+                NoteId = note.Id,
+                OldTitle = note.Title,
+                OldContent = note.Description,
+                ModifiedAt = DateTime.UtcNow
+            };
+
+            _noteHistoryRepository.AddAsync(history).Wait();
+
+            //  UPDATE NOTE
             note.Title = dto.Title;
             note.Description = dto.Description;
             note.Color = dto.Color;

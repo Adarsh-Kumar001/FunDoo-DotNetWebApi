@@ -9,3 +9,4 @@ C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\FunDooModels.dl
 C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\refint\FunDooModels.dll
 C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\FunDooModels.pdb
 C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\ref\FunDooModels.dll
+C:\Users\adars\source\repos\FunDoo\FunDooModels\obj\Debug\net8.0\FunDooModels.sourcelink.json

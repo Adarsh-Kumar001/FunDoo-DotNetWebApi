@@ -10,7 +10,13 @@ namespace FunDooRepository.Repositories.Interfaces
 {
     public interface ILabelRepository
     {
-        Label Add(Label label);
-        IEnumerable<Label> GetByUserId(long userId);
+        Task<Label> CreateAsync(Label label);
+        Task<IEnumerable<Label>> GetAllAsync(int userId);
+        Task<Label?> GetByIdAsync(int labelId, int userId);
+        Task<bool> UpdateAsync(Label label);
+        Task<bool> DeleteAsync(int labelId, int userId);
+
+        Task<bool> AddLabelToNote(int noteId, int labelId);
+        Task<bool> RemoveLabelFromNote(int noteId, int labelId);
     }
 }

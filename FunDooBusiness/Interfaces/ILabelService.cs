@@ -1,16 +1,22 @@
-﻿using System;
+﻿using FunDooRepository.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using FunDooRepository.Entities;
+using FunDooModels.DTOs.Labels;
 
 namespace FunDooBusiness.Interfaces
 {
     public interface ILabelService
     {
-        Label Create(Label label);
-        IEnumerable<Label> GetAll(long userId);
+        Task<Label> CreateLabel(int userId, CreateLabelDTO dto);
+        Task<IEnumerable<Label>> GetAllLabels(int userId);
+        Task<bool> UpdateLabel(int labelId, int userId, UpdateLabelDTO dto);
+        Task<bool> DeleteLabel(int labelId, int userId);
+
+        Task<bool> AddLabelToNote(int noteId, int labelId);
+        Task<bool> RemoveLabelFromNote(int noteId, int labelId);
     }
 }

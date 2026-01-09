@@ -1,6 +1,7 @@
 ﻿using FunDooRepository.DbContextFolder;
 using FunDooRepository.Entities;
 using FunDooRepository.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,16 +19,33 @@ namespace FunDooRepository.Repositories.Implementation
             _context = context;
         }
 
-        public Collaborator Add(Collaborator collaborator)
+        public async Task<Collaborator> AddAsync(Collaborator collaborator)
         {
             _context.Collaborators.Add(collaborator);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return collaborator;
         }
 
-        public IEnumerable<Collaborator> GetByNoteId(long noteId)
+        public async Task<bool> RemoveAsync(int collaboratorId, int ownerUserId)
         {
-            return _context.Collaborators.Where(c => c.NoteId == noteId).ToList();
+            var collaborator = await _context.Collaborators
+                .Include(c => c.Note)
+                .FirstOrDefaultAsync(c =>
+                    c.CollaboratorId == collaboratorId &&
+                    c.OwnerUserId == ownerUserId);
+
+            if (collaborator == null) return false;
+
+            _context.Collaborators.Remove(collaborator);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<List<Collaborator>> GetByNoteIdAsync(int noteId, int ownerUserId)
+        {
+            return await _context.Collaborators
+                .Where(c => c.NoteId == noteId && c.OwnerUserId == ownerUserId)
+                .ToListAsync();
         }
     }
 }
