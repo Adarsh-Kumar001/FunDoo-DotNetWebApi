@@ -25,10 +25,12 @@ namespace FunDooBusiness.Services
         }
 
 
-        public IEnumerable<Note> GetNotes(int userId)
+        public IEnumerable<Note> GetNotes(int userId, bool deleted = false)
         {
-            return _noteRepository.GetNotesByUser(userId);
+            return _noteRepository.GetNotesByUser(userId, deleted);
         }
+
+
 
         public Note GetNoteById(int noteId, int userId)
         {
@@ -79,9 +81,22 @@ namespace FunDooBusiness.Services
             var note = _noteRepository.GetById(noteId, userId);
             if (note == null) return false;
 
-            _noteRepository.Delete(note);
+            if (!note.IsDeleted)
+            {
+                // Move to bin
+                note.IsDeleted = true;
+
+                _noteRepository.Update(note);
+            }
+            else
+            {
+                // Permanent delete
+                _noteRepository.HardDelete(note);
+            }
+
             return true;
         }
+
 
         public bool TogglePin(int noteId, int userId)
         {

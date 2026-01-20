@@ -11,7 +11,7 @@ namespace FunDooBusiness.Interfaces
 {
     public interface INoteService
     {
-        IEnumerable<Note> GetNotes(int userId);
+        IEnumerable<Note> GetNotes(int userId, bool deleted);
         Note GetNoteById(int noteId, int userId);
         Note CreateNote(CreateNoteDTO dto, int userId);
         bool UpdateNote(int noteId, UpdateNoteDTO dto, int userId);

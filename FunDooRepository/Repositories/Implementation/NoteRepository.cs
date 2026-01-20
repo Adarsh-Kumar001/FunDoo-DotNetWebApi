@@ -1,11 +1,5 @@
 ﻿using FunDooRepository.DbContextFolder;
 using FunDooRepository.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using FunDooRepository.Repositories.Interfaces;
 
 namespace FunDooRepository.Repositories.Implementation
@@ -19,17 +13,18 @@ namespace FunDooRepository.Repositories.Implementation
             _context = context;
         }
 
-        public IEnumerable<Note> GetNotesByUser(int userId)
+        public IEnumerable<Note> GetNotesByUser(int userId, bool isDeleted)
         {
             return _context.Notes
-                .Where(n => n.UserId == userId && !n.IsDeleted)
+                .Where(n => n.UserId == userId && n.IsDeleted == isDeleted)
                 .ToList();
         }
 
+        // Get note even if deleted (IMPORTANT for restore / hard delete)
         public Note GetById(int noteId, int userId)
         {
             return _context.Notes
-                .FirstOrDefault(n => n.Id == noteId && n.UserId == userId && !n.IsDeleted);
+                .FirstOrDefault(n => n.Id == noteId && n.UserId == userId);
         }
 
         public Note Add(Note note)
@@ -45,9 +40,10 @@ namespace FunDooRepository.Repositories.Implementation
             _context.SaveChanges();
         }
 
-        public void Delete(Note note)
+        // Permanent delete ONLY
+        public void HardDelete(Note note)
         {
-            note.IsDeleted = true;
+            _context.Notes.Remove(note);
             _context.SaveChanges();
         }
     }

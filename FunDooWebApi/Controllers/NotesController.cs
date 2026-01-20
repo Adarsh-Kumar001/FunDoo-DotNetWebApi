@@ -25,11 +25,15 @@ namespace FunDooWebApi.Controllers
             return int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
         }
 
+
+
         [HttpGet]
-        public IActionResult GetNotes()
+        public IActionResult GetNotes([FromQuery] bool deleted = false)
         {
-            return Ok(_noteService.GetNotes(GetUserId()));
+            var notes = _noteService.GetNotes(GetUserId(), deleted);
+            return Ok(notes);
         }
+
 
         [HttpGet("{id}")]
         public IActionResult GetNote(int id)
@@ -51,7 +55,7 @@ namespace FunDooWebApi.Controllers
             if (!_noteService.UpdateNote(id, dto, GetUserId()))
                 return NotFound();
 
-            return Ok("Note updated");
+            return Ok(new { message = "Note Updated" });
         }
 
         [HttpDelete("{id}")]
@@ -60,7 +64,7 @@ namespace FunDooWebApi.Controllers
             if (!_noteService.DeleteNote(id, GetUserId()))
                 return NotFound();
 
-            return Ok("Note deleted");
+            return Ok(new { message = "Note deleted" });
         }
 
         [HttpPatch("{id}/pin")]
@@ -69,7 +73,7 @@ namespace FunDooWebApi.Controllers
             if (!_noteService.TogglePin(id, GetUserId()))
                 return NotFound();
 
-            return Ok("Pin toggled");
+            return Ok(new { message = "Pin toggled" });
         }
 
         [HttpPatch("{id}/archive")]
@@ -78,7 +82,7 @@ namespace FunDooWebApi.Controllers
             if (!_noteService.ToggleArchive(id, GetUserId()))
                 return NotFound();
 
-            return Ok("Archive toggled");
+            return Ok(new { message = "Archive toggled" });
         }
     }
 }
