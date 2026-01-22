@@ -55,7 +55,7 @@ namespace FunDooWebApi.Controllers
             var result = await _authService.VerifyEmailAsync(dto.Email, dto.Otp);
             if (!result) return BadRequest("Invalid email or OTP");
 
-            return Ok("Email verified successfully");
+            return Ok(new { message = "Email verified successfully" });
         }
 
         // ---------------- FORGOT PASSWORD ----------------
