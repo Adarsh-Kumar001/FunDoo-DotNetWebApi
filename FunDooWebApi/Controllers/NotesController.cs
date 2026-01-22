@@ -67,6 +67,16 @@ namespace FunDooWebApi.Controllers
             return Ok(new { message = "Note deleted" });
         }
 
+        [HttpPatch("{id}/restore")]
+        public IActionResult Restore(int id)
+        {
+            if (!_noteService.RestoreNote(id, GetUserId()))
+                return NotFound();
+
+            return Ok(new { message = "Note Restored" });
+        }
+
+
         [HttpPatch("{id}/pin")]
         public IActionResult TogglePin(int id)
         {

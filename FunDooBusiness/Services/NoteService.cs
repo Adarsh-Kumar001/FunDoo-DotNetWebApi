@@ -3,6 +3,7 @@ using FunDooModels.DTOs.Notes;
 using FunDooRepository.Entities;
 using FunDooRepository.Repositories.Implementation;
 using FunDooRepository.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -97,6 +98,18 @@ namespace FunDooBusiness.Services
             return true;
         }
 
+        public bool RestoreNote(int noteId, int userId)
+        {
+            var note = _noteRepository.GetById(noteId, userId);
+            if (note == null) return false;
+
+            note.IsDeleted = false;
+            note.IsArchived = false;
+            note.UpdatedAt = DateTime.UtcNow;
+
+            _noteRepository.Update(note);
+            return true;
+        }
 
         public bool TogglePin(int noteId, int userId)
         {

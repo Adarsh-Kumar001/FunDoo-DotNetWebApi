@@ -18,5 +18,7 @@ namespace FunDooBusiness.Interfaces
         bool DeleteNote(int noteId, int userId);
         bool TogglePin(int noteId, int userId);
         bool ToggleArchive(int noteId, int userId);
+
+        bool RestoreNote(int noteId, int userId);
     }
 }

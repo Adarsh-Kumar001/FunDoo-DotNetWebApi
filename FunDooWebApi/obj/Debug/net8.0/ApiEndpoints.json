@@ -364,5 +364,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FunDooWebApi.Controllers.NotesController",
+    "Method": "Restore",
+    "RelativePath": "api/notes/{id}/restore",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
