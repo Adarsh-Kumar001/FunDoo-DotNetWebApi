@@ -1,5 +1,6 @@
 ﻿using FunDooBusiness.Interfaces;
 using FunDooModels.DTOs.Notes;
+using FunDooModels.DTOs.Notes;
 using FunDooRepository.Entities;
 using FunDooRepository.Repositories.Implementation;
 using FunDooRepository.Repositories.Interfaces;
@@ -26,12 +27,30 @@ namespace FunDooBusiness.Services
         }
 
 
-        public IEnumerable<Note> GetNotes(int userId, bool deleted = false)
+        public IEnumerable<NoteResponseDTO> GetNotes(int userId, bool deleted = false)
         {
-            return _noteRepository.GetNotesByUser(userId, deleted);
+            var notes = _noteRepository.GetNotesByUser(userId, deleted);
+
+            return notes.Select(n => new NoteResponseDTO
+            {
+                Id = n.Id,
+                Title = n.Title,
+                Description = n.Description,
+                IsPinned = n.IsPinned,
+                IsArchived = n.IsArchived,
+                IsDeleted = n.IsDeleted,
+                Color = n.Color,
+                Labels = n.LabelNotes
+                    .Where(ln => ln.Label != null)
+                    .Select(ln => new LabelDTO
+                    {
+                        LabelId = ln.Label.LabelId,
+                        LabelName = ln.Label.LabelName
+                    })
+                    .ToList()
+            });
         }
-
-
+    
 
         public Note GetNoteById(int noteId, int userId)
         {

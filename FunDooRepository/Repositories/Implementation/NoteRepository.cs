@@ -1,6 +1,7 @@
 ﻿using FunDooRepository.DbContextFolder;
 using FunDooRepository.Entities;
 using FunDooRepository.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace FunDooRepository.Repositories.Implementation
 {
@@ -16,8 +17,10 @@ namespace FunDooRepository.Repositories.Implementation
         public IEnumerable<Note> GetNotesByUser(int userId, bool isDeleted)
         {
             return _context.Notes
-                .Where(n => n.UserId == userId && n.IsDeleted == isDeleted)
-                .ToList();
+           .Where(n => n.UserId == userId && n.IsDeleted == isDeleted)
+           .Include(n => n.LabelNotes)
+           .ThenInclude(ln => ln.Label)
+           .ToList();
         }
 
         // Get note even if deleted (IMPORTANT for restore / hard delete)

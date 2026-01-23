@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FunDooWebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8307765219bfdd8ca766c35d3f32cfb1a925befa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d724daa07c4f5526333628680e65abd1f0c4f8da")]
 [assembly: System.Reflection.AssemblyProductAttribute("FunDooWebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FunDooWebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

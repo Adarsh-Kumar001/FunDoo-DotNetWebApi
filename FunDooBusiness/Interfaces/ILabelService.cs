@@ -12,7 +12,7 @@ namespace FunDooBusiness.Interfaces
     public interface ILabelService
     {
         Task<Label> CreateLabel(int userId, CreateLabelDTO dto);
-        Task<IEnumerable<Label>> GetAllLabels(int userId);
+        Task<IEnumerable<LabelResponseDTO>> GetAllLabels(int userId);
         Task<bool> UpdateLabel(int labelId, int userId, UpdateLabelDTO dto);
         Task<bool> DeleteLabel(int labelId, int userId);
 

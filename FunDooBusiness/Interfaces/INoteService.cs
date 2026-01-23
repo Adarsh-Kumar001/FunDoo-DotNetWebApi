@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using FunDooModels.DTOs.Notes;
 
 namespace FunDooBusiness.Interfaces
 {
     public interface INoteService
     {
-        IEnumerable<Note> GetNotes(int userId, bool deleted);
+        IEnumerable<NoteResponseDTO> GetNotes(int userId, bool deleted = false);
         Note GetNoteById(int noteId, int userId);
         Note CreateNote(CreateNoteDTO dto, int userId);
         bool UpdateNote(int noteId, UpdateNoteDTO dto, int userId);

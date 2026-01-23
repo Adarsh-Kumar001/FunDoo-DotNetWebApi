@@ -31,9 +31,15 @@ namespace FunDooBusiness.Services
             return await _labelRepository.CreateAsync(label);
         }
 
-        public async Task<IEnumerable<Label>> GetAllLabels(int userId)
+        public async Task<IEnumerable<LabelResponseDTO>> GetAllLabels(int userId)
         {
-            return await _labelRepository.GetAllAsync(userId);
+            var labels = await _labelRepository.GetAllAsync(userId);
+
+            return labels.Select(l => new LabelResponseDTO
+            {
+                LabelId = l.LabelId,
+                LabelName = l.LabelName
+            });
         }
 
         public async Task<bool> UpdateLabel(int labelId, int userId, UpdateLabelDTO dto)

@@ -30,6 +30,8 @@ namespace FunDooRepository.Repositories.Implementation
         {
             return await _context.Labels
                 .Where(l => l.UserId == userId)
+                .Include(l => l.LabelNotes)
+                    .ThenInclude(ln => ln.Note)
                 .ToListAsync();
         }
 
@@ -47,10 +49,18 @@ namespace FunDooRepository.Repositories.Implementation
 
         public async Task<bool> DeleteAsync(int labelId, int userId)
         {
+            // 1. Get the label
             var label = await GetByIdAsync(labelId, userId);
             if (label == null) return false;
 
+            // 2. Remove all LabelNote mappings first
+            var labelNotes = _context.LabelNotes.Where(ln => ln.LabelId == labelId);
+            _context.LabelNotes.RemoveRange(labelNotes);
+
+            // 3. Now remove the label itself
             _context.Labels.Remove(label);
+
+            // 4. Save changes
             return await _context.SaveChangesAsync() > 0;
         }
 
